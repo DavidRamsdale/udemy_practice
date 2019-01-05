@@ -11,7 +11,9 @@ module.exports = app => {
             description: "5 dollars for 5 credits"
         });
 
-        console.log(charge);
+        req.user.credits += 5;
+        const user = await req.user.save();
 
+        res.send(user);
     });
 ;}
